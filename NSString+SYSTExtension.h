@@ -19,7 +19,7 @@
  
  @return One of the strings given by parameter.
  */
-+ (NSString *)getRightFormForTheAmount:(NSNumber*)amount,...;
++ (NSString *)getRightFormForTheAmount:(NSNumber*)amount,... NS_REQUIRES_NIL_TERMINATION;
 
 + (NSString*)stringWithDeviceToken:(NSData*)deviceToken;
 
