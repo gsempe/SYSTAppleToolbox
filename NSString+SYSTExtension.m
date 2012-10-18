@@ -67,6 +67,14 @@
     }
 }
 
+-(NSString *)urlEncodeUsingEncoding:(NSStringEncoding)encoding {
+	return (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                               (CFStringRef)self,
+                                                               NULL,
+                                                               (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
+                                                               CFStringConvertNSStringEncodingToEncoding(encoding));
+}
+
 - (BOOL)isValidEmail
 {
     BOOL stricterFilter = YES; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/

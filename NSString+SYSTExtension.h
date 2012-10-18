@@ -25,5 +25,7 @@
 
 - (NSString *)capitalizedSentence;
 
+- (NSString *)urlEncodeUsingEncoding:(NSStringEncoding)encoding;
+
 - (BOOL)isValidEmail;
 @end
