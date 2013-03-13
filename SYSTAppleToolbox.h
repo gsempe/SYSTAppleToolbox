@@ -8,3 +8,5 @@
 
 #import "NSString+SYSTExtension.h"
 #import "UIDevice+SYSTExtension.h"
+#import "UIImage+SYSTExtension.h"
+#import "UIView+SYSTExtension.h"
