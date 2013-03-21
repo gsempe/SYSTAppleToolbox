@@ -20,4 +20,6 @@ typedef enum
 
 @interface UIDevice (SYSTExtension)
 + (SYSTDeviceType)deviceType;
++ (BOOL)isDeviceiPad;
++ (BOOL)isDeviceiPhone;
 @end

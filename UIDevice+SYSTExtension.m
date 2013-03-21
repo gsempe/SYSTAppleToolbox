@@ -8,6 +8,9 @@
 
 #import "UIDevice+SYSTExtension.h"
 
+#define SYSTDeviceTypeiPhoneMask    (systDeviceTypeiPhone|systDeviceTypeiPhoneRetina|systDeviceTypeiPhone5)
+#define SYSTDeviceTypeiPadMask      (systDeviceTypeiPad|systDeviceTypeiPadRetina)
+
 @implementation UIDevice (SYSTExtension)
 
 + (SYSTDeviceType)deviceType
@@ -37,6 +40,24 @@
     }
     
     return deviceType;
+}
+
++ (BOOL)isDeviceiPad
+{
+    BOOL isiPad = NO;
+    if (0!=([UIDevice deviceType]&SYSTDeviceTypeiPadMask)) {
+        isiPad = YES;
+    }
+    return isiPad;
+}
+
++ (BOOL)isDeviceiPhone
+{
+    BOOL isiPhone = NO;
+    if (0!=([UIDevice deviceType]&SYSTDeviceTypeiPhoneMask)) {
+        isiPhone = YES;
+    }
+    return isiPhone;
 }
 
 @end
