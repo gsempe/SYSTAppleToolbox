@@ -28,4 +28,8 @@
 - (NSString *)urlEncodeUsingEncoding:(NSStringEncoding)encoding;
 
 - (BOOL)isValidEmail;
+
++ (NSString *)base64Encode:(NSString *)plainText;
++ (NSString *)base64Decode:(NSString *)base64String;
+
 @end
