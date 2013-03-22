@@ -10,4 +10,5 @@
 
 @interface UIImage (SYSTExtension)
 + (UIImage *)decodedImageWithImage:(UIImage *)image;
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 @end
