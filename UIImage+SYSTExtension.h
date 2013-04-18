@@ -11,4 +11,14 @@
 @interface UIImage (SYSTExtension)
 + (UIImage *)decodedImageWithImage:(UIImage *)image;
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+
+/*
+ From http://robots.thoughtbot.com/post/46668544473/designing-for-ios-blending-modes
+ */
+
+/*
+ Tint a flat image
+ */
+- (UIImage *)tintedImageWithColor:(UIColor *)tintColor;
+- (UIImage *)tintedGradientImageWithColor:(UIColor *)tintColor;
 @end
