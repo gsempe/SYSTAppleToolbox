@@ -57,14 +57,32 @@
     return image;
 }
 
+- (UIImage *)tintedImageWithColor:(UIColor *)tintColor
+{
+    return [self tintedImageWithColor:tintColor blendingMode:kCGBlendModeDestinationIn];
+}
+
 - (UIImage *)tintedGradientImageWithColor:(UIColor *)tintColor
 {
     return [self tintedImageWithColor:tintColor blendingMode:kCGBlendModeOverlay];
 }
 
-- (UIImage *)tintedImageWithColor:(UIColor *)tintColor
+- (UIImage *)overlayImageWithColor:(UIColor *)color
 {
-    return [self tintedImageWithColor:tintColor blendingMode:kCGBlendModeDestinationIn];
+    UIImage *monochrome = [UIImage imageWithColor:color size:self.size];
+    CGFloat red;
+    CGFloat green;
+    CGFloat blue;
+    CGFloat alpha;
+    [color getRed:&red green:&green blue:&blue alpha:&alpha];
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
+    CGRect bounds = CGRectMake(0, 0, self.size.width, self.size.height);
+    [self drawInRect:bounds blendMode:kCGBlendModeNormal alpha:1.0f];
+    [monochrome drawInRect:bounds blendMode:kCGBlendModeNormal alpha:alpha];
+    UIImage *overlayImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return overlayImage;
 }
 
 #pragma mark - Private methods

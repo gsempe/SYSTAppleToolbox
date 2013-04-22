@@ -21,4 +21,6 @@
  */
 - (UIImage *)tintedImageWithColor:(UIColor *)tintColor;
 - (UIImage *)tintedGradientImageWithColor:(UIColor *)tintColor;
+
+- (UIImage *)overlayImageWithColor:(UIColor *)color;
 @end
