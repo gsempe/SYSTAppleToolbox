@@ -10,4 +10,8 @@
 
 @interface UIImage (SYSTExtension)
 + (UIImage *)decodedImageWithImage:(UIImage *)image;
+/*
+ Fix image orientation problems by changing it to UIImageOrientationUp whatever the orientation of image
+ */
++ (UIImage *)normalizeImage:(UIImage *)image;
 @end
