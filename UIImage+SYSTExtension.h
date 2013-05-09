@@ -14,4 +14,5 @@
  Fix image orientation problems by changing it to UIImageOrientationUp whatever the orientation of image
  */
 + (UIImage *)normalizeImage:(UIImage *)image;
++ (UIImage *)rotateImage:(UIImage *)image byDegreeRotation:(CGFloat)degreeRotation;
 @end
