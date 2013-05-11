@@ -171,4 +171,11 @@
     return img;
 }
 
++ (UIImage *)rotateImage:(UIImage *)image withTransformation:(CGAffineTransform)rotationTransformation
+{
+    CGFloat radianRotation = atan2f(rotationTransformation.b, rotationTransformation.a);
+    CGFloat degreeRotation = radianRotation*180.0/M_PI;
+    return [self rotateImage:image byDegreeRotation:degreeRotation];
+}
+
 @end

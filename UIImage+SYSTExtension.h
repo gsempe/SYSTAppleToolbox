@@ -15,4 +15,5 @@
  */
 + (UIImage *)normalizeImage:(UIImage *)image;
 + (UIImage *)rotateImage:(UIImage *)image byDegreeRotation:(CGFloat)degreeRotation;
++ (UIImage *)rotateImage:(UIImage *)image withTransformation:(CGAffineTransform)rotationTransformation;
 @end
