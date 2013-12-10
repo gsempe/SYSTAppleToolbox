@@ -31,4 +31,14 @@
     }
 }
 
++ (BOOL)areNotificationsEnabled
+{
+    UIRemoteNotificationType types = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
+    if (types&UIRemoteNotificationTypeAlert) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 @end
