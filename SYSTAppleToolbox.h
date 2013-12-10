@@ -15,3 +15,4 @@
 #import "UIColor+SYSTExtension.h"
 #import "UIApplication+SYSTExtension.h"
 #import "UINavigationItem+SYSTExtension.h"
+#import "NSAttributedString+SYSTExtension.h"
