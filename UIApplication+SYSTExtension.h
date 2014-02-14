@@ -16,4 +16,11 @@
 + (UIView *)abracadabraBar;
 
 + (BOOL)areNotificationsEnabled;
+
+/*
+ Base window
+ */
+@property (nonatomic, readonly) UIView *baseWindowView;
+- (void)addWindowOverlay:(UIView *)view;
+
 @end
