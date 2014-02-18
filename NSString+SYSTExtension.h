@@ -32,4 +32,11 @@
 + (NSString *)base64Encode:(NSString *)plainText;
 + (NSString *)base64Decode:(NSString *)base64String;
 
+/*
+ Bridge the new iOS7 boundingRectWithSize:options:attributes:context: NSString method with the iOS6 sizeWithFont:constrainedToSize:lineBreakMode:
+ 
+ Get rect containing a NSString with a specific font and constrained to a specific size
+ */
+- (CGRect)rectWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
+
 @end

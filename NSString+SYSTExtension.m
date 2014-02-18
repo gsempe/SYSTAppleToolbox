@@ -116,4 +116,21 @@
     return plainText;
 }
 
+/*
+ Get rect containing a NSString with a specific font and constrained to a specific size
+ */
+- (CGRect)rectWithFont:(UIFont *)font constrainedToSize:(CGSize)size
+{
+    CGRect rect = CGRectZero;
+    if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
+        rect = [self boundingRectWithSize:size
+                                  options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
+                               attributes:@{NSFontAttributeName: font}
+                                  context:nil];
+    } else {
+        CGSize size = [self sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
+        rect = (CGRect){CGPointZero,size};
+    }
+    return rect;
+}
 @end
