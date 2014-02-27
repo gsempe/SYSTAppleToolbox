@@ -32,6 +32,9 @@
 + (NSString *)base64Encode:(NSString *)plainText;
 + (NSString *)base64Decode:(NSString *)base64String;
 
++ (NSString*)sha1:(NSString*)plainString;
++ (NSString *)md5:(NSString *)plainString;
+
 /*
  Bridge the new iOS7 boundingRectWithSize:options:attributes:context: NSString method with the iOS6 sizeWithFont:constrainedToSize:lineBreakMode:
  

@@ -8,6 +8,7 @@
 
 #import "NSString+SYSTExtension.h"
 #import "NSData+SYSTExtension.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @implementation NSString (SYSTExtension)
 
@@ -114,6 +115,39 @@
     NSData *plainTextData = [NSData dataFromBase64String:base64String];
     NSString *plainText = [[NSString alloc] initWithData:plainTextData encoding:NSUTF8StringEncoding];
     return plainText;
+}
+
++ (NSString*)sha1:(NSString*)plainString
+{
+    const char *cstr = [plainString cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cstr length:plainString.length];
+    
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    
+    CC_SHA1(data.bytes, data.length, digest);
+    
+    NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    
+    return output;
+    
+}
+
++ (NSString *)md5:(NSString *)plainString
+{
+    const char *cStr = [plainString UTF8String];
+    unsigned char digest[16];
+    CC_MD5( cStr, strlen(cStr), digest ); // This is the md5 call
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    
+    return  output;
+    
 }
 
 /*
