@@ -18,6 +18,12 @@
 + (BOOL)areNotificationsEnabled;
 
 /*
+ Application state
+ */
+- (BOOL)isRunningInBackground;
+- (BOOL)isRunningInForeground;
+
+/*
  Base window
  */
 @property (nonatomic, readonly) UIView *baseWindowView;

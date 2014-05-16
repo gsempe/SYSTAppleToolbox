@@ -41,6 +41,20 @@
     }
 }
 
+/*
+ Application state
+ */
+- (BOOL)isRunningInBackground
+{
+    UIApplicationState state = self.applicationState;
+    return state == UIApplicationStateBackground;
+}
+
+- (BOOL)isRunningInForeground
+{
+    UIApplicationState state = self.applicationState;
+    return state == UIApplicationStateActive;
+}
 
 /*
  Base window
