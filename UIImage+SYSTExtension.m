@@ -12,7 +12,7 @@
 
 @implementation UIImage (SYSTExtension)
 
-+ (UIImage *)decodedImageWithImage:(UIImage *)image {
++ (UIImage *)SYSDecodedImageWithImage:(UIImage *)image {
     CGImageRef imageRef = image.CGImage;
     // System only supports RGB, set explicitly and prevent context error
     // if the downloaded image is not the supported format
