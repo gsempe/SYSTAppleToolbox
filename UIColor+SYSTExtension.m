@@ -28,6 +28,9 @@
 
 + (UIColor *)colorWithHexString:(NSString *)hexadecimal
 {
+    if (hexadecimal == nil) {
+        return nil;
+    }
 	// convert Objective-C NSString to C string
 	const char *cString = [hexadecimal cStringUsingEncoding: NSASCIIStringEncoding];
 	long int hex;
