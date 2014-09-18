@@ -31,13 +31,30 @@
     }
 }
 
++ (void)enableNotifications
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8")) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    } else {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                                               UIRemoteNotificationTypeAlert |
+                                                                               UIRemoteNotificationTypeSound)];
+    }
+}
+
 + (BOOL)areNotificationsEnabled
 {
-    UIRemoteNotificationType types = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
-    if (types&UIRemoteNotificationTypeAlert) {
-        return YES;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8")) {
+        return [[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
     } else {
-        return NO;
+        UIRemoteNotificationType types = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
+        if (types&UIRemoteNotificationTypeAlert) {
+            return YES;
+        } else {
+            return NO;
+        }
+        
     }
 }
 

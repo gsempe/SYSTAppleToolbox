@@ -15,6 +15,8 @@
  */
 + (UIView *)abracadabraBar;
 
++ (void)enableNotifications;
+
 + (BOOL)areNotificationsEnabled;
 
 /*
