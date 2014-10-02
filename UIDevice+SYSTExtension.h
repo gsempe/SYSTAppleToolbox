@@ -20,8 +20,10 @@ typedef enum
     systDeviceTypeiPhone          = 1 << 1,
     systDeviceTypeiPhoneRetina    = 1 << 2,
     systDeviceTypeiPhone5         = 1 << 3,
-    systDeviceTypeiPad            = 1 << 4,
-    systDeviceTypeiPadRetina      = 1 << 5
+    systDeviceTypeiPhone6         = 1 << 4,
+    systDeviceTypeiPhone6Plus     = 1 << 5,
+    systDeviceTypeiPad            = 1 << 6,
+    systDeviceTypeiPadRetina      = 1 << 7
 } SYSTDeviceType;
 
 @interface UIDevice (SYSTExtension)
