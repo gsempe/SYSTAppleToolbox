@@ -35,8 +35,11 @@
 
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
         if (scale == 3.0f) {
-            // pixelHeight should be 2208 but can be 1704 if the app is running in iOS8 compatibility mode (scale up)
+            // pixelHeight should be 2208 (736x3) but can be 1704 (568x3) if the app is running in iOS8 compatibility mode (scale up)
             // In both cases we do not care for now, iPhone6+ is the only device with nativeScale @3x
+            //
+            // However it seems nativeScale of iPhone6+ is not 3 outside the simulator...
+            // In zoomed compatibility mode is something like 2.608696 and the pixelHeight is so something like 1481.739 (568x2.608696)
             deviceType = systDeviceTypeiPhone6Plus;
         } else if (scale == 2.0f) {
             if (pixelHeight == 960.0f) {
@@ -48,11 +51,19 @@
             }
         } else if (scale == 1.0f && pixelHeight == 480.0f) {
             deviceType = systDeviceTypeiPhone;
+        } else {
+            // It's the fallback case:
+            // In most of the cases it's only important to know it's an iPhone
+            deviceType = systDeviceTypeiPhone;
         }
     } else {
         if (scale == 2.0f && pixelHeight == 2048.0f) {
             deviceType = systDeviceTypeiPadRetina;
         } else if (scale == 1.0f && pixelHeight == 1024.0f) {
+            deviceType = systDeviceTypeiPad;
+        } else {
+            // It's the fallback case:
+            // In most of the cases it's only important to know it's an iPad
             deviceType = systDeviceTypeiPad;
         }
     }
